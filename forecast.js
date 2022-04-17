@@ -13,7 +13,7 @@ function getForecast(){
     if(city != '' && days != ''){
 
         $.ajax({
-            url: 'https://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + "&units=metric" + "&cnt=" + days + "&APPID=c10bb3bd22f90d636baa008b1529ee25",
+            url: 'https://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + "&units=imperial" + "&cnt=" + days + "&APPID=c10bb3bd22f90d636baa008b1529ee25",
             type: "GET",
             dataType: "jsonp",
             success: function(data){
@@ -28,10 +28,10 @@ function getForecast(){
                     table += "<td><img src='http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png'></td>";
                     table += "<td>" + data.list[i].weather[0].main + "</td>";
                     table += "<td>" + data.list[i].weather[0].description + "</td>";
-                    table += "<td>" + data.list[i].temp.morn + "&deg;C</td>";
-                    table += "<td>" + data.list[i].temp.night + "&deg;C</td>";
-                    table += "<td>" + data.list[i].temp.min + "&deg;C</td>";
-                    table += "<td>" + data.list[i].temp.max + "&deg;C</td>";
+                    table += "<td>" + data.list[i].temp.morn + "&deg;F</td>";
+                    table += "<td>" + data.list[i].temp.night + "&deg;F</td>";
+                    table += "<td>" + data.list[i].temp.min + "&deg;F</td>";
+                    table += "<td>" + data.list[i].temp.max + "&deg;F</td>";
                     table += "<td>" + data.list[i].pressure + "hpa</td>";
                     table += "<td>" + data.list[i].humidity + "%</td>";
                     table += "<td>" + data.list[i].speed + "m/s</td>";
